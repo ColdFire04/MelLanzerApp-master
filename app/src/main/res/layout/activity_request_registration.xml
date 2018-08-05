@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    tools:context=".requestRegistration">
+
+    <TextView
+        android:id="@+id/registrationText"
+        android:layout_width="390dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="In order to have an account, a manager must create one for you. Fill out the information below to request an account. You should recieve an email with your login information once the account has been created."
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:layout_centerHorizontal="true"
+        app:fontFamily="sans-serif" />
+
+    <EditText
+        android:id="@+id/firstNameRegister"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/registrationText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:background="@android:color/white"
+        android:ems="10"
+        android:hint="First Name"
+        android:inputType="textEmailAddress"
+        android:padding="10dp"
+        android:textColor="#030303" />
+
+    <EditText
+        android:id="@+id/lastNameRegister"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/firstNameRegister"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:background="@android:color/white"
+        android:ems="10"
+        android:hint="Last Name"
+        android:inputType="textEmailAddress"
+        android:padding="10dp"
+        android:textColor="#030303" />
+
+    <EditText
+        android:id="@+id/emailRegister"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lastNameRegister"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:background="@android:color/white"
+        android:ems="10"
+        android:hint="Business Email"
+        android:inputType="textEmailAddress"
+        android:padding="10dp"
+        android:textColor="#030303" />
+
+    <Button
+        android:id="@+id/requestRegistrationButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/emailRegister"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="Request Registration" />
+</RelativeLayout>

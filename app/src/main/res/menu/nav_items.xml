@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_jobs"
+        android:icon="@drawable/jobs"
+        android:title="@string/nav_jobs"
+        android:visible="true" />
+    <item
+        android:id="@+id/nav_schedule"
+        android:icon="@drawable/schedule"
+        android:title="@string/nav_schedule"
+        android:visible="true" />
+    <item
+        android:id="@+id/nav_people"
+        android:icon="@drawable/workers"
+        android:title="@string/nav_people"
+        android:visible="true" />
+    <item
+        android:id="@+id/nav_equipment"
+        android:icon="@drawable/tools"
+        android:title="@string/nav_equip"
+        android:visible="true" />
+</menu>
