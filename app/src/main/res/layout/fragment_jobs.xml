@@ -3,12 +3,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#030303"
     tools:context=".jobsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <EditText
+        android:id="@+id/job_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="250dp"
+        android:background="#ffff"
+        android:ems="10"
+        android:hint="@string/input_job"
+        android:inputType="text|textPersonName"
+        android:padding="10dp"
+        android:textColor="#030303"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/goButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="250dp"
+        android:layout_marginTop="250dp"
+        android:text="Go"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/display_button"
+        android:layout_width="250dp"
+
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/rc_red"
+        android:text="Button1"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/new_Job"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/rc_blue"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:text="Create New Job +" />
 
 </FrameLayout>

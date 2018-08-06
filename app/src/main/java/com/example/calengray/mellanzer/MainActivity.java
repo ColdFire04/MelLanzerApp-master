@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         mMainFrame = (FrameLayout) findViewById(R.id.main_frame);
         mMainNav = (BottomNavigationView) findViewById(R.id.main_nav);
 
+
         jobsFragment = new jobsFragment();
         scheduleFragment = new scheduleFragment();
         peopleFragment = new peopleFragment();
@@ -41,7 +42,8 @@ public class MainActivity extends AppCompatActivity {
         mMainNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                return false;
+
+                setFragment(scheduleFragment);
 
                 switch (item.getItemId()) {
                     case R.id.nav_jobs:
@@ -64,6 +66,9 @@ public class MainActivity extends AppCompatActivity {
                         setFragment(equipmentFragment);
                         return true;
 
+                        default:
+                            return false;
+
                 }
             }
 
@@ -73,12 +78,9 @@ public class MainActivity extends AppCompatActivity {
                 fragmentTransaction.commit();
 
             }
+        });
         }
-        })
 
     }
 
-    public void onClick(View view) {
 
-    }
-}
