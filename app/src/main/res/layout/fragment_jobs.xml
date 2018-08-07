@@ -6,39 +6,16 @@
     android:background="#030303"
     tools:context=".jobsFragment">
 
-    <EditText
-        android:id="@+id/job_input"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="250dp"
-        android:background="#ffff"
-        android:ems="10"
-        android:hint="@string/input_job"
-        android:inputType="text|textPersonName"
-        android:padding="10dp"
-        android:textColor="#030303"
-        android:textSize="18sp" />
-
-    <Button
-        android:id="@+id/goButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="250dp"
-        android:layout_marginTop="250dp"
-        android:text="Go"
-        android:textSize="18sp" />
-
     <Button
         android:id="@+id/display_button"
         android:layout_width="250dp"
-
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="200dp"
         android:background="@drawable/rc_red"
-        android:text="Button1"
-        android:textSize="18sp" />
+        android:text="Empty Job"
+        android:textSize="18sp"
+        tools:text="Empty Job" />
 
     <Button
         android:id="@+id/new_Job"

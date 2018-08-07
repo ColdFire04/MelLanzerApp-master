@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private scheduleFragment scheduleFragment;
     private peopleFragment peopleFragment;
     private equipmentFragment equipmentFragment;
+    private newJobFragment newJobFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         scheduleFragment = new scheduleFragment();
         peopleFragment = new peopleFragment();
         equipmentFragment = new equipmentFragment();
-
+        newJobFragment = new newJobFragment();
 
         mMainNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -66,8 +67,15 @@ public class MainActivity extends AppCompatActivity {
                         setFragment(equipmentFragment);
                         return true;
 
+                    case R.id.nav_newJob:
+
+                        setFragment(newJobFragment);
+                        return true;
+
                         default:
                             return false;
+
+
 
                 }
             }

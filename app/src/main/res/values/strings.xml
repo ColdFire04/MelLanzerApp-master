@@ -18,4 +18,5 @@
     <string name="People">nav_people</string>
     <string name="nav_people">People</string>
     <string name="input_job">Input Job Here</string>
+    <string name="nav_newJob">New Job</string>
 </resources>
