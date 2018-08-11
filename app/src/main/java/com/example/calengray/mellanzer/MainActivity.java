@@ -44,8 +44,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-                setFragment(scheduleFragment);
-
                 switch (item.getItemId()) {
                     case R.id.nav_jobs:
 
@@ -74,8 +72,6 @@ public class MainActivity extends AppCompatActivity {
 
                         default:
                             return false;
-
-
 
                 }
             }
