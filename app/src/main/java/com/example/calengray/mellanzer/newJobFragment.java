@@ -43,7 +43,7 @@ int x = 1;
     private String editEstimatedCompletionData;
     private EditText editJobAddress;
     private String editJobAddressData;
-    private Firebase  myFirebase;
+    private Firebase myFirebase;
 
     private Uri filePath;
 
