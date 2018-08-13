@@ -26,6 +26,8 @@ public class jobsFragment extends Fragment{
 
         View view = inflater.inflate(R.layout.fragment_jobs, container, false);
 
+
+
         return view;
 
     }

@@ -10,7 +10,10 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -75,14 +78,52 @@ int x = 1;
         finishJobButton.setOnClickListener(this);
         chooseFileButton.setOnClickListener(this);
 
-            //GO TO JOBS PAGE
+        //BUTTON ENABLING AND DISABLING
+
+
+
+         TextWatcher infoInputTextWatcher = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                String editJobNameInput = editJobName.getText().toString().trim();
+                String editJobStartInput = editEstimatedStart.getText().toString().trim();
+                String editJobEndInput = editEstimatedCompletion.getText().toString().trim();
+                String editJobAddressInput = editJobAddress.getText().toString().trim();
+
+
+                finishJobButton.setEnabled(!editJobAddressInput.isEmpty() &&
+                        !editJobStartInput.isEmpty() && !editJobEndInput.isEmpty() && !editJobNameInput.isEmpty());
+
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+
+        };
+
+        editJobName.addTextChangedListener(infoInputTextWatcher);
+        editEstimatedStart.addTextChangedListener(infoInputTextWatcher);
+        editEstimatedCompletion.addTextChangedListener(infoInputTextWatcher);
+        editJobAddress.addTextChangedListener(infoInputTextWatcher);
+
+
+
+
+
 
         finishJobButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.main_frame, new jobsFragment());
-                fr.commit();
+
 
                 //SENDS DATA
 
@@ -91,20 +132,35 @@ int x = 1;
                 editEstimatedCompletionData = editEstimatedCompletion.getText().toString();
                 editJobAddressData = editJobAddress.getText().toString();
 
-                Firebase myNewChildStart = myFirebase.child("Job Estimated Start");
-                Firebase myNewChildEnd = myFirebase.child("Job Estimated Completion");
-                Firebase myNewChildAddress = myFirebase.child("Job Address");
+                Firebase myNewChildJob = myFirebase.child("Job Name" + x++);
+                Firebase myNewChildStart = myFirebase.child("Job Estimated Start" + x++);
+                Firebase myNewChildEnd = myFirebase.child("Job Estimated Completion" + x++);
+                Firebase myNewChildAddress = myFirebase.child("Job Address" + x++);
 
 
+                myNewChildJob.setValue(editJobNameData);
                 myNewChildStart.setValue(editEstimatedStartData);
                 myNewChildEnd.setValue(editEstimatedCompletionData);
                 myNewChildAddress.setValue(editJobAddressData);
 
-                Toast.makeText(getActivity(), "New Job Created" + editJobNameData, Toast.LENGTH_SHORT).show();
-                Toast.makeText(getActivity(), editEstimatedStartData, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), editJobNameData + " Created", Toast.LENGTH_SHORT).show();
+ /*               Toast.makeText(getActivity(), editEstimatedStartData, Toast.LENGTH_SHORT).show();
                Toast.makeText(getActivity(), editEstimatedCompletionData, Toast.LENGTH_SHORT).show();
                 Toast.makeText(getActivity(), editJobAddressData, Toast.LENGTH_SHORT).show();
+*/
 
+                editJobName.setText("");
+                editEstimatedStart.setText("");
+                editEstimatedCompletion.setText("");
+                editJobAddress.setText("");
+
+
+                //GO TO JOBS PAGE
+
+
+                FragmentTransaction fr = getFragmentManager().beginTransaction();
+                fr.replace(R.id.main_frame, new jobsFragment());
+                fr.commit();
 
             }
         });
@@ -179,7 +235,12 @@ int x = 1;
 
         }
 
+
+
     }
+
+
+
 
         //CONVERT INPUT TO STRINGS
 
@@ -191,6 +252,7 @@ int x = 1;
         editEstimatedCompletionData = editEstimatedCompletion.getText().toString();
         editJobAddressData = editJobName.getText().toString();
 
+        Firebase myNewChild = myFirebase.child(editJobNameData);
         Firebase myNewChild1 = myFirebase.child(editEstimatedStartData);
         Firebase myNewChild2 = myFirebase.child(editEstimatedCompletionData);
         Firebase myNewChild3 = myFirebase.child(editJobAddressData);
