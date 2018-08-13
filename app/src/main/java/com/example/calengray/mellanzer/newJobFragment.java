@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.firebase.client.Firebase;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
@@ -35,8 +37,8 @@ int x = 1;
     private static final int PICK_IMAGE_REQUEST = 234;
     private ImageView bannerPreview;
     private Button chooseFileButton, finishJobButton;
-    private EditText editJobName;
-    private String editJobNameData;
+    public EditText editJobName;
+    public String editJobNameData;
     private EditText editEstimatedStart;
     private String editEstimatedStartData;
     private EditText editEstimatedCompletion;
@@ -44,23 +46,21 @@ int x = 1;
     private EditText editJobAddress;
     private String editJobAddressData;
     private Firebase myFirebase;
-
     private Uri filePath;
-
     private StorageReference storageReference;
 
     public newJobFragment() {
-    }
 
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_new_job, container, false);
 
+        Firebase.setAndroidContext(getActivity());
 
-        Firebase.setAndroidContext(this);
-        Firebase = new Firebase("https://fir-storage-5c406.firebaseio.com");
+        myFirebase = new Firebase("https://fir-storage-5c406.firebaseio.com/" + editJobNameData);
         bannerPreview = (ImageView) view.findViewById(R.id.bannerPreview);
         chooseFileButton = (Button) view.findViewById(R.id.chooseFileButton);
         finishJobButton = (Button) view.findViewById(R.id.finishJobButton);
@@ -70,11 +70,49 @@ int x = 1;
         editEstimatedCompletion = (EditText) view.findViewById(R.id.editEstimatedCompletion);
         editJobAddress = (EditText) view.findViewById(R.id.editJobAddress);
 
+
+
         finishJobButton.setOnClickListener(this);
         chooseFileButton.setOnClickListener(this);
-        
+
+            //GO TO JOBS PAGE
+
+        finishJobButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction fr = getFragmentManager().beginTransaction();
+                fr.replace(R.id.main_frame, new jobsFragment());
+                fr.commit();
+
+                //SENDS DATA
+
+                editJobNameData = editJobName.getText().toString();
+                editEstimatedStartData = editEstimatedStart.getText().toString();
+                editEstimatedCompletionData = editEstimatedCompletion.getText().toString();
+                editJobAddressData = editJobAddress.getText().toString();
+
+                Firebase myNewChildStart = myFirebase.child("Job Estimated Start");
+                Firebase myNewChildEnd = myFirebase.child("Job Estimated Completion");
+                Firebase myNewChildAddress = myFirebase.child("Job Address");
+
+
+                myNewChildStart.setValue(editEstimatedStartData);
+                myNewChildEnd.setValue(editEstimatedCompletionData);
+                myNewChildAddress.setValue(editJobAddressData);
+
+                Toast.makeText(getActivity(), "New Job Created" + editJobNameData, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), editEstimatedStartData, Toast.LENGTH_SHORT).show();
+               Toast.makeText(getActivity(), editEstimatedCompletionData, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), editJobAddressData, Toast.LENGTH_SHORT).show();
+
+
+            }
+        });
+
         return view;
     }
+
+        //CHOOSE IMAGE
 
     private void showFileChooser(){
         Intent intent = new Intent();
@@ -83,6 +121,7 @@ int x = 1;
         startActivityForResult(Intent.createChooser(intent,"Select an Image"), PICK_IMAGE_REQUEST);
     }
 
+        //UPLOAD IMAGE
     private void uploadFile() {
 
         if(filePath != null) {
@@ -120,7 +159,7 @@ int x = 1;
 
 
         }else{
-            //display error toast
+            //DISPLAY ERROR TOAST
         }
     }
 
@@ -142,7 +181,7 @@ int x = 1;
 
     }
 
-
+        //CONVERT INPUT TO STRINGS
 
     @Override
     public void onClick(View view) {
@@ -151,6 +190,11 @@ int x = 1;
         editEstimatedStartData = editEstimatedStart.getText().toString();
         editEstimatedCompletionData = editEstimatedCompletion.getText().toString();
         editJobAddressData = editJobName.getText().toString();
+
+        Firebase myNewChild1 = myFirebase.child(editEstimatedStartData);
+        Firebase myNewChild2 = myFirebase.child(editEstimatedCompletionData);
+        Firebase myNewChild3 = myFirebase.child(editJobAddressData);
+
 
         if(view == chooseFileButton) {
             showFileChooser();

@@ -13,9 +13,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="200dp"
         android:background="@drawable/rc_red"
-        android:text="Empty Job"
-        android:textSize="18sp"
-        tools:text="Empty Job" />
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/new_Job"

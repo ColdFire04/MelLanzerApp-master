@@ -30,6 +30,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.add(R.id.main_frame,new jobsFragment());
+        fragmentTransaction.commit();
+
+
+
+
         mMainFrame = (FrameLayout) findViewById(R.id.main_frame);
         mMainNav = (BottomNavigationView) findViewById(R.id.main_nav);
 
@@ -75,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             }
+
 
             private void setFragment(Fragment fragment) {
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();

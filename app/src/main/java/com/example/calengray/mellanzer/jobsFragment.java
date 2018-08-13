@@ -9,9 +9,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-
 public class jobsFragment extends Fragment{
 
+    public EditText editJobName;
+    private Button display_button;
+    public String editJobNameData;
 
     public jobsFragment() {
 
@@ -20,16 +22,11 @@ public class jobsFragment extends Fragment{
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+                                     Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.fragment_jobs, container, false);
+        View view = inflater.inflate(R.layout.fragment_jobs, container, false);
+
+        return view;
 
     }
-
-
-
-
-
-
 }
