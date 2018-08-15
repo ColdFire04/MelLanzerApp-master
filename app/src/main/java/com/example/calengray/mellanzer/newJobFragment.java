@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -124,6 +123,14 @@ int x = 1;
             @Override
             public void onClick(View view) {
 
+                /*
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                FragmentName NAME = new FragmentName();
+                fragmentTransaction.replace(R.id.main_frame, NAME);
+                fragmentTransaction.commit();
+
+*/
 
                 //SENDS DATA
 
@@ -132,10 +139,10 @@ int x = 1;
                 editEstimatedCompletionData = editEstimatedCompletion.getText().toString();
                 editJobAddressData = editJobAddress.getText().toString();
 
-                Firebase myNewChildJob = myFirebase.child("Job Name" + x++);
-                Firebase myNewChildStart = myFirebase.child("Job Estimated Start" + x++);
-                Firebase myNewChildEnd = myFirebase.child("Job Estimated Completion" + x++);
-                Firebase myNewChildAddress = myFirebase.child("Job Address" + x++);
+                Firebase myNewChildJob = myFirebase.child("Job Name");
+                Firebase myNewChildStart = myFirebase.child("Job Estimated Start");
+                Firebase myNewChildEnd = myFirebase.child("Job Estimated Completion");
+                Firebase myNewChildAddress = myFirebase.child("Job Address");
 
 
                 myNewChildJob.setValue(editJobNameData);
@@ -159,7 +166,7 @@ int x = 1;
 
 
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.main_frame, new jobsFragment());
+                fr.replace(R.id.main_frame, new jobInfoFragment());
                 fr.commit();
 
             }
@@ -238,8 +245,6 @@ int x = 1;
 
 
     }
-
-
 
 
         //CONVERT INPUT TO STRINGS

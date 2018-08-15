@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#030303"
+    tools:context=".jobInfoFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:id="@+id/JobTitle"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:text=" JOB TITLE " />
+    <ImageView
+        android:id="@+id/JobBannerImage"
+        android:layout_width="match_parent"
+        android:layout_below="@id/JobTitle"
+        android:layout_marginTop="20dp"
+        android:layout_height="120dp"
+        android:background="#fff" />
+
+    <TextView
+        android:id="@+id/EstimatedStartConst"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:textSize="18dp"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/JobBannerImage"
+        android:textColor="#fff"
+        android:text="Estimated Start - " />
+
+    <TextView
+        android:id="@+id/EstimatedEndConst"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="50dp"
+        android:textSize="18dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/JobBannerImage"
+        android:textColor="#fff"
+        android:text="Estimated End - " />
+
+    <TextView
+        android:id="@+id/ManagerTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/EstimatedEndConst"
+        android:textSize="25dp"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="#fff"
+        android:text="Manager - " />
+
+    <Button
+        android:id="@+id/MapButton"
+        android:layout_width="200dp"
+        android:background="@drawable/rc_blue"
+        android:layout_marginTop="30dp"
+        android:layout_height="50dp"
+        android:text="MAP"
+        android:textSize="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@id/ManagerTitle"/>
+
+    <Button
+        android:id="@+id/ScheduleButton"
+        android:layout_width="200dp"
+        android:background="@drawable/rc_green"
+        android:layout_marginTop="40dp"
+        android:layout_height="50dp"
+        android:text="SCHEDULE"
+        android:textSize="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@id/MapButton"/>
+
+    <Button
+        android:id="@+id/FilesButton"
+        android:layout_width="200dp"
+        android:background="@drawable/rc_red"
+        android:layout_marginTop="40dp"
+        android:layout_height="50dp"
+        android:text="FILES"
+        android:textSize="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@id/ScheduleButton"/>
+    <Button
+        android:id="@+id/OptionsButton"
+        android:layout_width="200dp"
+        android:background="@drawable/rc_yellow"
+        android:layout_marginTop="40dp"
+        android:layout_height="50dp"
+        android:text="OPTIONS"
+        android:textSize="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@id/FilesButton"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="UPDATED - "
+        android:layout_marginTop="364dp"
+        android:layout_marginLeft="230dp"
+        android:textColor="#fff"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="UPDATED - "
+        android:layout_marginTop="364dp"
+        android:layout_marginLeft="230dp"
+        android:textColor="#fff"
+        android:layout_height="wrap_content" />
+
+    <TextView
+    android:layout_width="wrap_content"
+    android:text="UPDATED - "
+    android:layout_marginTop="453dp"
+    android:layout_marginLeft="230dp"
+    android:textColor="#fff"
+    android:layout_height="wrap_content" />
+
+    <TextView
+    android:layout_width="wrap_content"
+    android:text="UPDATED - "
+    android:layout_marginTop="543dp"
+    android:layout_marginLeft="230dp"
+    android:textColor="#fff"
+    android:layout_height="wrap_content" />
+</RelativeLayout>
