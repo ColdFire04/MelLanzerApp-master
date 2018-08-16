@@ -57,6 +57,10 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.nav_jobs:
 
+                        Bundle bundle = new Bundle();
+                        bundle.putString("JobName", "Hello There!");
+                        jobsFragment.setArguments(bundle);
+
                         setFragment(jobsFragment);
                         return true;
 
