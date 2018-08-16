@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -77,6 +78,8 @@ int x = 1;
         finishJobButton.setOnClickListener(this);
         chooseFileButton.setOnClickListener(this);
 
+
+        /*
         //BUTTON ENABLING AND DISABLING
 
 
@@ -114,7 +117,7 @@ int x = 1;
         editEstimatedCompletion.addTextChangedListener(infoInputTextWatcher);
         editJobAddress.addTextChangedListener(infoInputTextWatcher);
 
-
+*/
 
 
 
@@ -246,11 +249,13 @@ int x = 1;
 
     }
 
-
-        //CONVERT INPUT TO STRINGS
+        //ON CLICK LISTENER
 
     @Override
     public void onClick(View view) {
+
+        //CONVERT INPUT TO STRINGS
+
 
         editJobNameData = editJobName.getText().toString();
         editEstimatedStartData = editEstimatedStart.getText().toString();

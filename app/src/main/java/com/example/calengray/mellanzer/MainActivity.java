@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
         mMainFrame = (FrameLayout) findViewById(R.id.main_frame);
         mMainNav = (BottomNavigationView) findViewById(R.id.main_nav);
 
