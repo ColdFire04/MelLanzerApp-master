@@ -12,8 +12,6 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -126,6 +124,20 @@ int x = 1;
             @Override
             public void onClick(View view) {
 
+                String jobName = editJobName.getText().toString();
+
+                Bundle bundle = new Bundle();
+                bundle.putString("JobName",jobName);
+
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                jobInfoFragment jobInfoFragment = new jobInfoFragment();
+                jobInfoFragment.setArguments(bundle);
+
+                fragmentTransaction.replace(R.id.main_frame, jobInfoFragment);
+                fragmentTransaction.commit();
+
                 /*
                 FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -172,7 +184,7 @@ int x = 1;
                 fr.replace(R.id.main_frame, new jobInfoFragment());
                 fr.commit();
 
-            }
+            };
         });
 
         return view;

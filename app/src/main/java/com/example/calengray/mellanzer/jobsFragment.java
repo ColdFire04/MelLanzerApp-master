@@ -14,46 +14,29 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 
-public class jobsFragment extends Fragment{
+public class jobsFragment extends Fragment {
 
-  private Button display_button1;
-  private Button display_button2;
-  private Button display_button3;
-  public String editJobNameData;
-  Firebase myFirebase;
+    private Button display_button1;
+    public String editJobNameData;
+    Firebase myFirebase;
 
     public jobsFragment() {
 
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                     Bundle savedInstanceState) {
+                             Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_jobs, container, false);
 
-        final Button display_button1 = (Button) view.findViewById(R.id.display_button1);
-        Button display_button2 = (Button) view.findViewById(R.id.display_button2);
-        Button display_button3 = (Button) view.findViewById(R.id.display_button3);
-        Button display_button4 = (Button) view.findViewById(R.id.display_button4);
+        Bundle bundle = getArguments();
 
-        Firebase.setAndroidContext(getActivity().getApplicationContext());
-        myFirebase = new Firebase("https://fir-storage-5c406.firebaseio.com/" + editJobNameData);
+        String jobName = bundle.getString("JobName");
 
-        myFirebase.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+        Button display_button1 = view.findViewById(R.id.display_button1);
 
-                String myChildText = dataSnapshot.getValue(String.class);
-                display_button1.setText(myChildText);
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-                display_button1.setText("Error Found");
-            }
-        });
+        display_button1.setText("JobName");
 
         return view;
 
