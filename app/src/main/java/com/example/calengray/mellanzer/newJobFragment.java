@@ -3,6 +3,7 @@ package com.example.calengray.mellanzer;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -13,14 +14,18 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
+import android.text.TextWatcher;
 import android.view.View;
+import android.text.Editable;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.firebase.client.Firebase;
+import com.firebase.client.annotations.Nullable;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
@@ -28,12 +33,11 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-import java.io.IOException;
+    import java.io.IOException;
 
+    public class newJobFragment extends Fragment implements View.OnClickListener{
 
-public class newJobFragment extends Fragment implements View.OnClickListener{
-
-int x = 1;
+    int x = 1;
 
     private static final int PICK_IMAGE_REQUEST = 234;
     private ImageView bannerPreview;
@@ -50,13 +54,14 @@ int x = 1;
     private Uri filePath;
     private StorageReference storageReference;
 
+
     public newJobFragment() {
 
     }
 
+    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_new_job, container, false);
 
         Firebase.setAndroidContext(getActivity());
@@ -64,20 +69,25 @@ int x = 1;
         myFirebase = new Firebase("https://fir-storage-5c406.firebaseio.com/" + editJobNameData);
         bannerPreview = (ImageView) view.findViewById(R.id.bannerPreview);
         chooseFileButton = (Button) view.findViewById(R.id.chooseFileButton);
-        finishJobButton = (Button) view.findViewById(R.id.finishJobButton);
         storageReference = FirebaseStorage.getInstance().getReference();
+
+        finishJobButton = (Button) view.findViewById(R.id.finishJobButton);
+
         editJobName = (EditText) view.findViewById(R.id.editJobName);
+
         editEstimatedStart = (EditText) view.findViewById(R.id.editEstimatedStart);
         editEstimatedCompletion = (EditText) view.findViewById(R.id.editEstimatedCompletion);
         editJobAddress = (EditText) view.findViewById(R.id.editJobAddress);
-
-
 
         finishJobButton.setOnClickListener(this);
         chooseFileButton.setOnClickListener(this);
 
 
-        /*
+
+
+
+
+
         //BUTTON ENABLING AND DISABLING
 
 
@@ -115,7 +125,7 @@ int x = 1;
         editEstimatedCompletion.addTextChangedListener(infoInputTextWatcher);
         editJobAddress.addTextChangedListener(infoInputTextWatcher);
 
-*/
+
 
 
 
@@ -123,20 +133,6 @@ int x = 1;
         finishJobButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                String jobName = editJobName.getText().toString();
-
-                Bundle bundle = new Bundle();
-                bundle.putString("JobName",jobName);
-
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-                jobInfoFragment jobInfoFragment = new jobInfoFragment();
-                jobInfoFragment.setArguments(bundle);
-
-                fragmentTransaction.replace(R.id.main_frame, jobInfoFragment);
-                fragmentTransaction.commit();
 
                 /*
                 FragmentManager fragmentManager = getFragmentManager();
@@ -190,7 +186,11 @@ int x = 1;
         return view;
     }
 
-        //CHOOSE IMAGE
+
+
+
+
+    //CHOOSE IMAGE
 
     private void showFileChooser(){
         Intent intent = new Intent();
@@ -266,8 +266,8 @@ int x = 1;
     @Override
     public void onClick(View view) {
 
-        //CONVERT INPUT TO STRINGS
 
+        //CONVERT INPUT TO STRINGS
 
         editJobNameData = editJobName.getText().toString();
         editEstimatedStartData = editEstimatedStart.getText().toString();

@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#030303"
+    android:id="@+id/RelativeLayout1"
     tools:context=".jobInfoFragment">
 
     <!-- TODO: Update blank fragment layout -->

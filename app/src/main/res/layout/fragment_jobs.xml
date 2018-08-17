@@ -1,45 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#030303"
-    tools:context=".jobsFragment">
 
-    <Button
-        android:id="@+id/display_button1"
-        android:layout_width="300dp"
-        android:layout_height="70dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
-        android:background="@drawable/rc_blue"
-        android:textSize="18sp" />
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/RelativeLayoutJobsPage"
+         android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#030303"
+        tools:context=".jobsFragment">
 
-    <Button
-        android:id="@+id/display_button2"
-        android:layout_width="300dp"
-        android:layout_height="70dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="200dp"
-        android:background="@drawable/rc_green"
-        android:textSize="18sp" />
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/display_button3"
-        android:layout_width="300dp"
-        android:layout_height="70dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="300dp"
-        android:background="@drawable/rc_red"
-        android:textSize="18sp" />
-
-    <Button
-        android:id="@+id/display_button4"
-        android:layout_width="300dp"
-        android:layout_height="70dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="400dp"
-        android:background="@drawable/rc_yellow"
-        android:textSize="18sp" />
-
-</RelativeLayout>

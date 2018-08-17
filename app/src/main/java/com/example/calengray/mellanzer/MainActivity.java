@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.design.internal.BottomNavigationMenu;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,7 +15,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     private BottomNavigationView mMainNav;
     private FrameLayout mMainFrame;
@@ -31,13 +32,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.main_frame,new jobsFragment());
-        fragmentTransaction.commit();
-
-
-
-
+       /* FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.add(R.id.main_frame, new jobsFragment());
+        fragmentTransaction.commit(); */
 
 
         mMainFrame = (FrameLayout) findViewById(R.id.main_frame);
@@ -58,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.nav_jobs:
 
                         Bundle bundle = new Bundle();
-                        bundle.putString("JobName", "Hello There!");
+                        bundle.putString("JobName", "EMPTYJOB");
                         jobsFragment.setArguments(bundle);
 
                         setFragment(jobsFragment);
@@ -84,8 +81,10 @@ public class MainActivity extends AppCompatActivity {
                         setFragment(newJobFragment);
                         return true;
 
-                        default:
-                            return false;
+                    default:
+                        return false;
+
+
 
                 }
             }
@@ -98,8 +97,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        }
-
     }
 
-
+}
