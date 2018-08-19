@@ -11,15 +11,15 @@
 
     <TextView
         android:id="@+id/JobTitle"
-        android:layout_marginTop="15dp"
-        android:layout_centerHorizontal="true"
-        android:textSize="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="-"
         android:textColor="#fff"
-        android:text=" JOB TITLE " />
+        android:textSize="30dp" />
     <ImageView
-        android:id="@+id/JobBannerImage"
+        android:id="@+id/jobBanner"
         android:layout_width="match_parent"
         android:layout_below="@id/JobTitle"
         android:layout_marginTop="20dp"
@@ -34,7 +34,7 @@
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/JobBannerImage"
+        android:layout_below="@id/jobBanner"
         android:textColor="#fff"
         android:text="Estimated Start - " />
 
@@ -45,7 +45,7 @@
         android:textSize="18dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/JobBannerImage"
+        android:layout_below="@id/jobBanner"
         android:textColor="#fff"
         android:text="Estimated End - " />
 
@@ -92,16 +92,17 @@
         android:textSize="30dp"
         android:layout_marginLeft="20dp"
         android:layout_below="@id/ScheduleButton"/>
+
     <Button
-        android:id="@+id/OptionsButton"
+        android:id="@+id/optionsButton"
         android:layout_width="200dp"
-        android:background="@drawable/rc_yellow"
-        android:layout_marginTop="40dp"
         android:layout_height="50dp"
-        android:text="OPTIONS"
-        android:textSize="30dp"
+        android:layout_below="@id/FilesButton"
         android:layout_marginLeft="20dp"
-        android:layout_below="@id/FilesButton"/>
+        android:layout_marginTop="40dp"
+        android:background="@drawable/rc_yellow"
+        android:text="OPTIONS"
+        android:textSize="30dp" />
 
     <TextView
         android:layout_width="wrap_content"

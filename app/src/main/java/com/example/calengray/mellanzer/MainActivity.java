@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity{
@@ -26,11 +27,32 @@ public class MainActivity extends AppCompatActivity{
     private equipmentFragment equipmentFragment;
     private newJobFragment newJobFragment;
 
+    LinearLayout jobsLayout = null;
+
+    Button finishJobButton = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //CREATES NEW BUTTON
+
+        jobsLayout = (LinearLayout) findViewById(R.id.jobsLayout);
+
+        Button finishJobButton = (Button) findViewById(R.id.finishJobButton);
+        finishJobButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Button newJobButton = new Button(MainActivity.this);
+
+                newJobButton.setLayoutParams(new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT,
+                        LinearLayout.LayoutParams.MATCH_PARENT
+
+                        ));
+                              jobsLayout.addView(newJobButton);
+            }
+        });
 
        /* FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.add(R.id.main_frame, new jobsFragment());
