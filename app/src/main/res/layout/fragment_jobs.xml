@@ -9,5 +9,15 @@
         android:background="#030303"
         tools:context=".jobsFragment">
 
+        <Button
+            android:id="@+id/createNewJobBtn"
+            android:layout_width="200dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp"
+            android:layout_height="75dp"
+            android:textSize="15dp"
+            android:background="@android:color/white"
+            android:text="Create New Job"
+            android:textColor="@android:color/black" />
     </LinearLayout>
 

@@ -22,8 +22,4 @@
         android:icon="@drawable/tools"
         android:title="@string/nav_equip"
         android:visible="true" />
-    <item
-        android:id="@+id/nav_newJob"
-        android:icon="@drawable/add"
-        android:title="@string/nav_newJob" />
 </menu>

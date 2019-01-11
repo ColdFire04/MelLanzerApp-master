@@ -35,25 +35,6 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //CREATES NEW BUTTON
-
-        jobsLayout = (LinearLayout) findViewById(R.id.jobsLayout);
-
-        Button finishJobButton = (Button) findViewById(R.id.finishJobButton);
-        finishJobButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Button newJobButton = new Button(MainActivity.this);
-
-                newJobButton.setLayoutParams(new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.MATCH_PARENT,
-                        LinearLayout.LayoutParams.MATCH_PARENT
-
-                        ));
-                              jobsLayout.addView(newJobButton);
-            }
-        });
-
        /* FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.add(R.id.main_frame, new jobsFragment());
         fragmentTransaction.commit(); */
@@ -96,11 +77,6 @@ public class MainActivity extends AppCompatActivity{
                     case R.id.nav_equipment:
 
                         setFragment(equipmentFragment);
-                        return true;
-
-                    case R.id.nav_newJob:
-
-                        setFragment(newJobFragment);
                         return true;
 
                     default:

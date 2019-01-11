@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.calengray.mellanzer">
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".loginPage" />
-        <activity android:name=".requestRegistration"></activity>
+        <activity android:name=".requestRegistration" />
+        <activity android:name=".newJobActivity"></activity>
     </application>
 
 </manifest>

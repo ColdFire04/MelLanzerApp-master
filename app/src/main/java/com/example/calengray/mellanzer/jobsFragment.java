@@ -1,6 +1,7 @@
 package com.example.calengray.mellanzer;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -22,6 +23,7 @@ public class jobsFragment extends Fragment {
     private Button display_button1;
     Firebase myFirebase;
     public RelativeLayout RelativeLayout;
+    private Button createNewJobBtn;
 
     public jobsFragment() {
 
@@ -32,10 +34,17 @@ public class jobsFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_jobs, container, false);
 
+       Button createNewJobBtn = (Button) view.findViewById(R.id.createNewJobBtn);
 
+        createNewJobBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //NEW JOB BUTTON TAKES YOU TO newJobActivity
+                Intent intent = new Intent(getActivity(), newJobActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
         return view;
-
-
     }
-
 }
