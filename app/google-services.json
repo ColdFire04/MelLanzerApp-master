@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "940920437662",
+    "firebase_url": "https://fir-storage-5c406.firebaseio.com",
+    "project_id": "fir-storage-5c406",
+    "storage_bucket": "fir-storage-5c406.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:940920437662:android:83471030af1bcce3",
+        "android_client_info": {
+          "package_name": "com.example.calengray.mellanzer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "940920437662-q4k2a96o8uji09e0bfu3us56ae48ntb2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.calengray.mellanzer",
+            "certificate_hash": "137772311787c9f4f1c031fc09bce56e31864337"
+          }
+        },
+        {
+          "client_id": "940920437662-thinsl00k13a52ht7jrh8tglsimo2k60.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtiyrr9ggUbazd8krb-z-FNBH88aYR_rE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "940920437662-thinsl00k13a52ht7jrh8tglsimo2k60.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
